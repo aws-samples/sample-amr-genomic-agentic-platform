@@ -1,0 +1,8 @@
+# Keep Linux-executed scripts LF regardless of host OS. A CRLF shebang makes the
+# kernel look for an interpreter named "bash\r", which fails with exit 127 when
+# the container runs. Enforcing LF here prevents that class of bug on Windows
+# checkouts.
+*.sh text eol=lf
+Dockerfile text eol=lf
+*.nf text eol=lf
+entrypoint.* text eol=lf
